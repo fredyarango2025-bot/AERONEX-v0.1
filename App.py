@@ -359,3 +359,107 @@ elif page == "Assets":
 
     st.title("Assets")
 
+    st.dataframe(
+        assets,
+        use_container_width=True
+    )
+
+# =========================
+# RECOGNITION ENGINE
+# =========================
+
+elif page == "Recognition Engine":
+
+    st.title("⭐ Asset Recognition Engine")
+
+    st.markdown("---")
+
+    st.subheader(
+        "Asset"
+    )
+
+    st.info(
+        "Primary Radar Thales X200"
+    )
+
+    st.markdown("### Recognition Checklist")
+
+    t = st.checkbox(
+        "Technical Acceptance",
+        value=True
+    )
+
+    f = st.checkbox(
+        "Financial Acceptance",
+        value=True
+    )
+
+    a = st.checkbox(
+        "As-Built Documentation",
+        value=True
+    )
+
+    c = st.checkbox(
+        "Commissioning Certificate",
+        value=True
+    )
+
+    d = st.checkbox(
+        "Final Documentation",
+        value=True
+    )
+
+    st.markdown("---")
+
+    st.subheader(
+        "Validation Engine"
+    )
+
+    st.success("✅ Initiative Approved")
+    st.success("✅ Active Contract")
+    st.success("✅ No Critical Blockers")
+
+    ready = all([
+        t,
+        f,
+        a,
+        c,
+        d
+    ])
+
+    if ready:
+
+        st.success(
+            "✅ Checklist Completed"
+        )
+
+        if st.button(
+            "Recognize Asset",
+            use_container_width=True
+        ):
+            st.balloons()
+
+            st.success(
+                """
+                Asset Recognized Successfully
+
+                Status: RECOGNIZED
+
+                Recognition Date:
+                20-Jun-2027
+                """
+            )
+
+    else:
+
+        st.error(
+            "Checklist incomplete"
+        )
+
+# =========================
+# FOOTER
+# =========================
+
+st.sidebar.markdown("---")
+st.sidebar.caption("AERONEX™ v0.2 Demo")
+st.sidebar.caption("Airport Capital Governance Platform")
